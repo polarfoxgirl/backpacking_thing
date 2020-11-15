@@ -7,9 +7,44 @@ import {
   Link
 } from "react-router-dom";
 
+import AboutInfo from './components/AboutInfo'
 import ParkSelector from './components/ParkSelector'
 import ParkTrails from './components/ParkTrails'
 import TrailDetails from './components/TrailDetails'
+
+function Header() {
+  return (
+    <header id="header" className="alt">
+      <h1><strong>Backcountry Adventure</strong> Planner</h1>
+      <nav id="nav">
+        <ul>
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/park/Foo">Park Foo</Link></li>
+          <li><Link to="/trail/42">Trail 42</Link></li>
+          <li><Link to="/about">About</Link></li>
+        </ul>
+      </nav>
+    </header>
+  );
+}
+
+function Footer() {
+  return (
+    <footer id="footer">
+      <div className="container">
+        <ul className="icons">
+          <li><a href="#" className="icon fa-twitter"></a></li>
+          <li><a href="#" className="icon fa-instagram"></a></li>
+        </ul>
+        <ul className="copyright">
+          <li>&copy; TBD</li>
+          <li>Design: <a href="http://templated.co">TEMPLATED</a></li>
+          <li>Images: <a href="http://unsplash.com">Unsplash</a></li>
+        </ul>
+      </div>
+    </footer>
+  );
+}
 
 function App() {
   const [currentMessage, setCurrentMessage] = useState(0);
@@ -30,40 +65,19 @@ function App() {
 
   return (
     <Router>
-      <div className="App">
-        <header className="App-header">
-          <p>The current message is "{currentMessage}".</p>
-          <p>The current time is {currentTime}.</p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/park/Foo">Park Foo</Link>
-            </li>
-            <li>
-              <Link to="/trail/42">Trail 42</Link>
-            </li>
-          </ul>
-        </nav>
+      <div>
+        <Header/>
 
-        {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
-        <Switch>
-          <Route path="/park/:name" component={ParkTrails} />
-          <Route path="/trail/:tid" component={TrailDetails} />
-          <Route path="/"component={ParkSelector} />
-        </Switch>
+        <section>
+          <Switch>
+            <Route path="/park/:name" component={ParkTrails} />
+            <Route path="/trail/:tid" component={TrailDetails} />
+            <Route path="/about" component={AboutInfo} />
+            <Route path="/"component={ParkSelector} />
+          </Switch>
+        </section>
+
+        <Footer />
       </div>
     </Router>
   );
