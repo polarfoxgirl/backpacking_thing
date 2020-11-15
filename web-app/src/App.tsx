@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import './App.css';
+import './assets/css/main.css';
 import {
   BrowserRouter as Router,
   Switch,
@@ -43,8 +43,6 @@ function App() {
             Learn React
           </a>
         </header>
-      </div>
-      <div>
         <nav>
           <ul>
             <li>
