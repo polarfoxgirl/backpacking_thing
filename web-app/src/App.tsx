@@ -4,29 +4,12 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
 } from "react-router-dom";
 
 import AboutInfo from './components/AboutInfo'
 import ParkSelector from './components/ParkSelector'
 import ParkTrails from './components/ParkTrails'
 import TrailDetails from './components/TrailDetails'
-
-function Header() {
-  return (
-    <header id="header" className="alt">
-      <h1><strong>Backcountry Adventure</strong> Planner</h1>
-      <nav id="nav">
-        <ul>
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/park/Foo">Park Foo</Link></li>
-          <li><Link to="/trail/42">Trail 42</Link></li>
-          <li><Link to="/about">About</Link></li>
-        </ul>
-      </nav>
-    </header>
-  );
-}
 
 function Footer() {
   return (
@@ -47,7 +30,7 @@ function Footer() {
 }
 
 function App() {
-  const [currentMessage, setCurrentMessage] = useState(0);
+  const [currentMessage, setCurrentMessage] = useState("foo");
 
   useEffect(() => {
     fetch('/message').then(res => res.json()).then(data => {
@@ -55,27 +38,15 @@ function App() {
     });
   }, []);
 
-  const [currentTime, setCurrentTime] = useState(0);
-
-  useEffect(() => {
-    fetch('/time').then(res => res.json()).then(data => {
-      setCurrentTime(data.time);
-    });
-  }, []);
-
   return (
     <Router>
-      <div>
-        <Header/>
-
-        <section>
-          <Switch>
-            <Route path="/park/:name" component={ParkTrails} />
-            <Route path="/trail/:tid" component={TrailDetails} />
-            <Route path="/about" component={AboutInfo} />
-            <Route path="/"component={ParkSelector} />
-          </Switch>
-        </section>
+      <div >
+        <Switch>
+          <Route path="/park/:name" component={ParkTrails} />
+          <Route path="/trail/:tid" component={TrailDetails} />
+          <Route path="/about" component={AboutInfo} />
+          <Route path="/"component={ParkSelector} />
+        </Switch>
 
         <Footer />
       </div>

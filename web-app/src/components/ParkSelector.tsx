@@ -3,10 +3,14 @@ import {
     Redirect,
   } from "react-router-dom";
 
+import AltHeader from './AltHeader'
+
 type ParkSelectState = {
   parkName: string,
   redirect: boolean,
 }
+
+const IS_LANDING_CLASS = "landing";
 
 class ParkSelectForm extends React.Component<{}, ParkSelectState> {
   constructor(props: {}) {
@@ -25,6 +29,15 @@ class ParkSelectForm extends React.Component<{}, ParkSelectState> {
   handleSubmit(event:  React.FormEvent<HTMLFormElement>) {
     this.setState({redirect: true});
     event.preventDefault();
+  }
+
+  componentDidMount() {
+const IS_LANDING_CLASS = "landing";
+    document.body.classList.add(IS_LANDING_CLASS);
+  }
+
+  componentWillUnmount() {
+    document.body.classList.remove(IS_LANDING_CLASS);
   }
 
   render() {
@@ -48,14 +61,16 @@ class ParkSelectForm extends React.Component<{}, ParkSelectState> {
   }
 }
 
-
 class ParkSelector extends React.Component {
     render() {
         return (
-          <section id="banner">
-            <h2>Where to?</h2>
-            <ParkSelectForm/>
-          </section>
+          <div>
+            <AltHeader isLanding={true} />
+            <section id="banner">
+              <h2>Where to?</h2>
+              <ParkSelectForm/>
+            </section>
+          </div>
         );
     }
 }

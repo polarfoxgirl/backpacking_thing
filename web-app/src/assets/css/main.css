@@ -2797,7 +2797,7 @@
 		top: 0;
 		width: 100%;
 		z-index: 10000;
-		z-index: 10001;
+    z-index: 10001;
 	}
 
 		#header h1 {
@@ -2891,7 +2891,7 @@
 				top: 2em;
 			}
 
-				#header.alt h1 a {
+				#header.alt h1 strong {
 					color: #FFF;
 				}
 
