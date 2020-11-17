@@ -3274,4 +3274,10 @@
 					padding: 0;
 				}
 
-		}
+    }
+    
+/* WebMap */
+
+.webmap {
+  height: 400px;
+}
