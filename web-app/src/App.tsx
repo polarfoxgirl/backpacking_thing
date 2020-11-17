@@ -14,7 +14,7 @@ import TrailDetails from './components/TrailDetails'
 function Footer() {
   return (
     <footer id="footer">
-      <div className="container">
+      <div className="container 25%">
         <ul className="icons">
           <li><a href="#" className="icon fa-twitter"></a></li>
           <li><a href="#" className="icon fa-instagram"></a></li>

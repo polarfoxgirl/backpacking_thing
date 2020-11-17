@@ -32,7 +32,6 @@ class ParkSelectForm extends React.Component<{}, ParkSelectState> {
   }
 
   componentDidMount() {
-const IS_LANDING_CLASS = "landing";
     document.body.classList.add(IS_LANDING_CLASS);
   }
 
@@ -48,12 +47,17 @@ const IS_LANDING_CLASS = "landing";
     return (
       <form onSubmit={this.handleSubmit}>
         <label>
-          <p>Select your destination:</p>
-          <select value={this.state.parkName} onChange={this.handleChange}>
-            <option value="rocky_mountain">Rocky Mountain National Park</option>
-            <option value="olympic">Olympic National Park</option>
-            <option value="zion">Zion National Park</option>
-          </select>
+          <div className="container 75%">
+            <select 
+              value={this.state.parkName} 
+              onChange={this.handleChange}
+              className="alt"
+            >
+              <option value="rocky_mountain">Rocky Mountain National Park</option>
+              <option value="olympic">Olympic National Park</option>
+              <option value="zion">Zion National Park</option>
+            </select>
+          </div>
         </label>
         <input type="submit" value="Submit" className="button special big" />
       </form>
@@ -67,7 +71,7 @@ class ParkSelector extends React.Component {
           <div>
             <AltHeader isLanding={true} />
             <section id="banner">
-              <h2>Where to?</h2>
+              <h2>Select your destination</h2>
               <ParkSelectForm/>
             </section>
           </div>

@@ -2102,7 +2102,16 @@
 		padding: 0 1em;
 		text-decoration: none;
 		width: 100%;
-	}
+  }
+  
+    select.alt {
+      background: rgba(144, 144, 144, 0.25);
+      color: #ffffff;
+    }
+
+    select.alt option {
+      color: #000000;
+    }
 
 		input[type="text"]:invalid,
 		input[type="password"]:invalid,
