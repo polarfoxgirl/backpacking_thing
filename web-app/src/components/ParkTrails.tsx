@@ -3,6 +3,7 @@ import { RouteComponentProps } from "react-router-dom";
 
 import AltHeader from './AltHeader'
 import ParkMap from './ParkMap'
+import TrailList from './TrailList';
 
 type ParkParams = { name: string };
 
@@ -17,6 +18,7 @@ class ParkTrails extends React.Component<RouteComponentProps<ParkParams>> {
           </div>
         </section>
         <ParkMap />
+        <TrailList />
       </div>
     );
   }

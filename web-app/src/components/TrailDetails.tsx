@@ -2,6 +2,7 @@ import React from 'react'
 import { RouteComponentProps } from "react-router-dom";
 
 import AltHeader from './AltHeader'
+import TrailMap from './TrailMap';
 
 type TrailParams = { tid: string };
 
@@ -14,6 +15,7 @@ class TrailDetails extends React.Component<RouteComponentProps<TrailParams>> {
           <div className="container">
             <p>Here will be some trail info about trail config #{this.props.match.params.tid}</p>
           </div>
+          <TrailMap />
         </section>
       </div>
     );
