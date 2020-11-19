@@ -30,14 +30,6 @@ function Footer() {
 }
 
 function App() {
-  const [currentMessage, setCurrentMessage] = useState("foo");
-
-  // TODO: use async/await for API calls
-  useEffect(() => {
-    fetch('/message').then(res => res.json()).then(data => {
-      setCurrentMessage(data.msg);
-    });
-  }, []);
 
   return (
     <Router>
