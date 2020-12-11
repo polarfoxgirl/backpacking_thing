@@ -59,3 +59,7 @@ def trail_details(tid: int) -> str:
     trail_name = f"Trail #{tid}"
     response = TrailDetailsResponse(trail_name, "Some useful information about the trail here")
     return json.dumps(response._asdict())
+
+
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', port=8080)
